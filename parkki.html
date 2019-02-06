@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parkkipaikat</title>
+    <link href="parkkipaikka.css" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<h1 class="title">PARKKIPAIKKASEURANTA</h1>
+<div class="sijoitus">
+    <div id = "P1" class="paikka"><p id="viesti"></div>
+    <div id = "P2" class="paikka"><p id="viesti1"></div>
+    <div id = "P3" class="paikka"><p id="viesti2"></div>
+    <div id = "P4" class="paikka"><p id="viesti3"></div>
+</div>
+<div>
+    <img src="tamk.png" class="tamk">
+    <img src="IFM.svg" class="ifm">
+</div>
+
+
+<script>
+    let parkkiPaikkaelmnt1 = document.getElementById("P1");
+    let parkkiPaikkaelmnt2 = document.getElementById("P2");
+    let parkkiPaikkaelmnt3 = document.getElementById("P3");
+    let parkkiPaikkaelmnt4 = document.getElementById("P4");
+setInterval(pollMyelmnt, 1000);
+function pollMyelmnt() {
+
+
+	$.getJSON('http://home.tamk.fi/~e7mvinna/parkkipaikat', function(data) {
+    
+		let tilanne1 = parseInt(data["p1"]);
+		let tilanne2 = parseInt(data["p2"]);
+		let tilanne3 = parseInt(data["p3"]);
+		let tilanne4 = parseInt(data["p4"]);
+
+		if(tilanne1 == 1){
+    	    parkkiPaikkaelmnt1.style.backgroundColor = "#88cc00";
+    	    document.getElementById("viesti").innerHTML = "Vapaa";
+    	}
+    	else if(tilanne1 == 0){
+    	    parkkiPaikkaelmnt1.style.backgroundColor = "#ff6666";
+    	    document.getElementById("viesti").innerHTML = "Varattu";
+    	}
+    	if(tilanne2 == 1){
+    	    parkkiPaikkaelmnt2.style.backgroundColor = "#88cc00";
+    	    document.getElementById("viesti1").innerHTML = "Vapaa";
+    	}
+    	else if(tilanne2 == 0){
+    	    parkkiPaikkaelmnt2.style.backgroundColor = "#ff6666";
+    	    document.getElementById("viesti1").innerHTML = "Varattu";
+    	}
+    	if(tilanne3 == 1){
+    	    parkkiPaikkaelmnt3.style.backgroundColor = "#88cc00";
+    	    document.getElementById("viesti2").innerHTML = "Vapaa";
+    	}
+    	else if(tilanne2 == 0){
+    	    parkkiPaikkaelmnt3.style.backgroundColor = "#ff6666";
+    	    document.getElementById("viesti2").innerHTML = "Varattu";
+    	}
+    	if(tilanne4 == 1){
+    	    parkkiPaikkaelmnt4.style.backgroundColor = "#88cc00";
+    	    document.getElementById("viesti3").innerHTML = "Vapaa";
+    	}
+    	else if(tilanne4 == 0){
+    	    parkkiPaikkaelmnt4.style.backgroundColor = "#ff6666";
+    	    document.getElementById("viesti3").innerHTML = "Varattu";
+    	}
+	});
+
+    return false;
+}
+
+</script>
+</body>
+</html>
