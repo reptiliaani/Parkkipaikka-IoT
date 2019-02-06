@@ -1,0 +1,49 @@
+
+.paikka {
+  color: white;
+  width: 100px;
+  height: 250px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 25px;
+  padding: 50px;
+    font-size: 30px;
+    font-family: sans-serif;
+}
+.sijoitus{
+    position: absolute;
+    left: 55%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 70%;
+}
+.title{
+
+    padding-top: 75px;
+    text-align: center;
+    font-family: sans-serif;
+}
+.tamk {
+    display:block;
+    width: 250px;
+    height: 100px;
+    padding-top: 75px;
+    position: absolute;
+    left: 40%;
+    top: 80%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.ifm{
+    display:block;
+    width: 250px;
+    height: 100px;
+    padding-top: 75px;
+    position: absolute;
+    left: 60%;
+    top: 80%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+}
